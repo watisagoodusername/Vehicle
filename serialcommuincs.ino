@@ -29,8 +29,31 @@ void loop() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
     number = data.toInt();
-    Lval = 2*number/5 + 40;
-    Rval = -2*number/5 + 40;
+    Lval = 4*number/4 + 80;
+    Rval = -4*number/4 + 80;
+    if (number == 100) {
+        Lval = 0;
+        Rval = 150;
+        digitalWrite(in1,HIGH);
+        digitalWrite(in2,LOW);
+        digitalWrite(in3,HIGH);
+        digitalWrite(in4,LOW);
+    } else if(number == -100) {
+        Lval = 150;
+        Rval = 0;
+        digitalWrite(in1,HIGH);
+        digitalWrite(in2,LOW);
+        digitalWrite(in3,LOW);
+        digitalWrite(in4,HIGH);
+    } else {
+        digitalWrite(in1,HIGH);
+        digitalWrite(in2,LOW);
+        digitalWrite(in3,LOW);
+        digitalWrite(in4,HIGH);
+    }
+    if (Rval < 10) {
+       digitalWrite(in4, LOW);
+    }
     analogWrite(enaL, Lval);
     analogWrite(enaR, Rval);
   }

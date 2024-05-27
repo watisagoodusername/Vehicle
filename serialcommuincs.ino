@@ -33,13 +33,13 @@ void loop() {
     Rval = -4*number/4 + 80;
     if (number == 100) {
         Lval = 0;
-        Rval = 150;
+        Rval = 80;
         digitalWrite(in1,HIGH);
         digitalWrite(in2,LOW);
         digitalWrite(in3,HIGH);
         digitalWrite(in4,LOW);
     } else if(number == -100) {
-        Lval = 150;
+        Lval = 80;
         Rval = 0;
         digitalWrite(in1,HIGH);
         digitalWrite(in2,LOW);
